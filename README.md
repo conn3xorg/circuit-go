@@ -1,5 +1,7 @@
 # circuit-go
 
+[![Conn3x grade](https://conn3x.org/circuits/go/grade.svg)](https://conn3x.org/circuits/go/grade)
+
 A Conn3x circuit that puts one exact Go release on all your hosts. Distributions freeze Go at release time, so a mixed fleet ends up building with different compilers. This circuit takes the official tarball from go.dev instead, checks it against its SHA-256, and gives you the same Go on every distribution: 1.27.3 by default.
 
 If your hosts need command-line tools written in Go, list those too, each at an exact version. `go install` builds them into `/usr/local/bin`.
