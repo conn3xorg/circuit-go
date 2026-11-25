@@ -2,7 +2,7 @@
 
 [![Conn3x grade](https://conn3x.org/circuits/go/grade.svg)](https://conn3x.org/circuits/go/grade)
 
-A Conn3x circuit that puts one exact Go release on all your hosts. Distributions freeze Go at release time, so a mixed fleet ends up building with different compilers. This circuit takes the official tarball from go.dev instead, checks it against its SHA-256, and gives you the same Go on every distribution: 1.27.3 by default.
+A Conn3x circuit that puts one exact Go release on all your hosts. Distributions freeze Go at release time, so a mixed fleet ends up building with different compilers. This circuit takes the official tarball from go.dev instead, checks it against its SHA-256, and gives you the same Go on every distribution: 1.27.4 by default.
 
 If your hosts need command-line tools written in Go, list those too, each at an exact version. `go install` builds them into `/usr/local/bin`.
 
@@ -39,10 +39,10 @@ To try it on a throwaway container first, see [examples/local](examples/local).
 `go_version` and `checksums` move together. https://go.dev/dl/ lists the SHA-256 of every file:
 
 ```hcl
-go_version = "1.26.10"
+go_version = "1.26.11"
 checksums = {
-  amd64 = "ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5"
-  arm64 = "3f4227ce7b206a513e794f1393adb473a07b46e94d18bd15d1c684bbb7319797"
+  amd64 = "9849f4e04ee35303714e34fbc3ac8ab44ea3e448a95aa182f91e3b9b79c710ec"
+  arm64 = "6c2f29b458b5add0835f18b776f69c8881a6d88428f1484a6da55755e620757e"
 }
 ```
 
@@ -78,15 +78,15 @@ Before the circuit runs, the `conn3x_host` data source reads each host's archite
 | `ssh_private_key_file` | string | `null` | Path to a private key. When null, Conn3x uses the SSH agent. |
 | `ssh_known_hosts_file` | string | `null` | known_hosts file to check host keys against. When null, `~/.ssh/known_hosts`. Not used for a host object with `host_key`. |
 | `ssh_become` | bool | `false` | Run commands as root through sudo. Set it when `ssh_user` isn't root. |
-| `go_version` | string | `"1.27.3"` | Go release to install. Change `checksums` with it. |
-| `checksums` | map(string) | The tarballs of 1.27.3 | SHA-256 of the `amd64` and `arm64` `.tar.gz` tarballs. |
+| `go_version` | string | `"1.27.4"` | Go release to install. Change `checksums` with it. |
+| `checksums` | map(string) | The tarballs of 1.27.4 | SHA-256 of the `amd64` and `arm64` `.tar.gz` tarballs. |
 | `tools` | map(string) | `{}` | Commands to build with `go install`, by package path, each at an exact version. `latest` and ranges aren't accepted. |
 
 ## Outputs
 
 | Name | Description |
 | --- | --- |
-| `go_home` | GOROOT of the installed release on each host, by host name, such as `{ app1 = "/opt/go/1.27.3/go" }`. |
+| `go_home` | GOROOT of the installed release on each host, by host name, such as `{ app1 = "/opt/go/1.27.4/go" }`. |
 
 ## Requirements
 

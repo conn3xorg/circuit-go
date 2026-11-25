@@ -35,12 +35,12 @@ variable "ssh_become" {
 
 variable "go_version" {
   type        = string
-  default     = "1.27.3"
-  description = "Go release to install, such as \"1.27.3\". Change checksums with it."
+  default     = "1.27.4"
+  description = "Go release to install, such as \"1.27.4\". Change checksums with it."
 
   validation {
     condition     = can(regex("^[0-9]+\\.[0-9]+(\\.[0-9]+)?$", var.go_version))
-    error_message = "go_version must look like \"1.27.3\", without a leading go."
+    error_message = "go_version must look like \"1.27.4\", without a leading go."
   }
 }
 
@@ -48,8 +48,8 @@ variable "checksums" {
   type        = map(string)
   description = "SHA-256 of the linux-amd64 and linux-arm64 .tar.gz tarballs, from https://go.dev/dl/. Change these with go_version."
   default = {
-    amd64 = "65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40"
-    arm64 = "a06e99309dbcbdca1a8ccd2282c3ee146e55930886e26b4f1193269587165f49"
+    amd64 = "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840"
+    arm64 = "3392582988a273a87ab5043ee1b2c9c17a2c3c00580bf9326c47a2e0aaaeac92"
   }
 
   validation {

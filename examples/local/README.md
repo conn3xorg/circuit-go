@@ -1,6 +1,6 @@
 # Local example
 
-Applies circuit-go to a throwaway Rocky Linux 10 container with systemd, installing Go 1.27.3 and `oapi-codegen`. You need Conn3x and Podman.
+Applies circuit-go to a throwaway Rocky Linux 10 container with systemd, installing Go 1.27.4 and `oapi-codegen`. You need Conn3x and Podman.
 
 ```sh
 ./up.sh
