@@ -75,8 +75,8 @@ jobs:
         run: |
           sudo podman exec circuit-go bash -lc '
             set -eux
-            go version | grep -F "go1.27.3 "
-            go env GOROOT | grep -x /opt/go/1.27.3/go
+            go version | grep -F "go1.27.4 "
+            go env GOROOT | grep -x /opt/go/1.27.4/go
             cd "$(mktemp -d)"
             go mod init example.com/hello
             cat > main.go <<EOF
